@@ -12,7 +12,8 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
             duration: 0,
             begin_time: 9999999999,
             end_time: 9999999999
-        }));
+        })
+      );
     }
     $done({ body: JSON.stringify(obj) });
 
@@ -26,11 +27,9 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
             { id: 151, name: "影视", uri: "bilibili://pgc/cinema-tab", tab_id: "film", pos: 5 },
             { id: 39, name: "直播", uri: "bilibili://live/home", tab_id: "直播tab", pos: 1 }
         ];
-
         obj.data.top = [
             { id: 481, icon: "http://i0.hdslb.com/bfs/archive/d43047538e72c9ed8fd8e4e34415fbe3a4f632cb.png", name: "消息", uri: "bilibili://link/im_home", tab_id: "消息Top", pos: 1 }
         ];
-
         const excludeIds = new Set([103, 105, 107, 108]);
         if (obj.data.bottom) {
             obj.data.bottom = obj.data.bottom.filter(item => !excludeIds.has(item.id));
@@ -67,18 +66,17 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         ...section,
         items: section.items?.filter(item => !excludeIds.has(item.id)) || []
         }));
-}
-$done({ body: JSON.stringify(obj) });
+    }
+    $done({ body: JSON.stringify(obj) });
   
 // 匹配账号页面（iPad）接口    
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad/.test(url)) {
     const excludeTitles = new Set(["青少年守护"]);
     if (obj.data) {
         if (obj.data['ipad_more_sections']) {
-            obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section => !excludeTitles.has(section.title));
-        }
-        delete obj.data['ipad_recommend_sections'];
-        delete obj.data['ipad_upper_sections'];
+            obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section => !excludeTitles.has(section.title));}
+            delete obj.data['ipad_recommend_sections'];
+            delete obj.data['ipad_upper_sections'];
     }
     $done({ body: JSON.stringify(obj) });
 }
