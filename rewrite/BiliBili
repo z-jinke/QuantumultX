@@ -18,4 +18,4 @@ hostname = *.bilibili.com
 
 //我的页面处理
 ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials? url reject-200
-^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
+^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|mine\/ipad) url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
