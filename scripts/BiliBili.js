@@ -58,7 +58,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 
 // 匹配账号页面（iPhone）接口    
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?!\/ipad)/.test(url)) {
-    const excludeIds = new Set([171, 172, 173, 174, 429， 431, 432, 950]);
+    const excludeIds = new Set([171, 172, 173, 174, 429, 431, 432, 950]);
     const excludeTitles = new Set(["创作中心", "推荐服务", "其他服务"]);
     if (obj.data && obj.data.sections_v2) {
         obj.data.sections_v2 = obj.data.sections_v2.filter(section => !excludeTitles.has(section.title));
