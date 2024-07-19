@@ -1,0 +1,5 @@
+//Spotify
+
+host-suffix, spotifycdn.com, Spotify
+host-keyword, akamaized.net, direct
+host-suffix, spotify.com, Spotify
