@@ -60,16 +60,16 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?!\/ipad)/.test(url)) {
     const excludeIds = new Set([171, 172, 173, 174, 429, 431, 432, 950]);
     const excludeTitles = new Set(["创作中心", "推荐服务", "其他服务"]);
-    if (obj.data && obj.data.sections_v2) {
-        obj.data.sections_v2 = obj.data.sections_v2.filter(section => !excludeTitles.has(section.title));
-        obj.data.sections_v2.forEach(section => {
-            if (section.items) {
-                section.items = section.items.filter(item => !excludeIds.has(item.id));
-            }
-        });
-    }
-    $done({ body: JSON.stringify(obj) });
-
+    if (obj.data.sections_v2) {
+        obj.data.sections_v2 = obj.data.sections_v2
+        .filter(section => !excludeTitles.has(section.title))
+        .map(section => ({
+        ...section,
+        items: section.items?.filter(item => !excludeIds.has(item.id)) || []
+        }));
+}
+$done({ body: JSON.stringify(obj) });
+  
 // 匹配账号页面（iPad）接口    
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad/.test(url)) {
     const excludeTitles = new Set(["青少年守护"]);
