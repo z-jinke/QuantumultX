@@ -14,7 +14,8 @@ hostname = *.bilibili.com
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
 
 //标签页番剧和影视
-^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema\/tab|bangumi) url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
+^https?:\/\/api\.bilibili\.com\/pgc\/page\/cinema\/tab url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
+^https?:\/\/api\.bilibili\.com\/pgc\/page\/bangumi url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
 
 //我的页面处理
 ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials? url reject-200
