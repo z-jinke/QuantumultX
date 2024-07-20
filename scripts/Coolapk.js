@@ -23,7 +23,7 @@ if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     $done({ body: JSON.stringify(obj) });
 
 // 匹配首页或搜索接口
-} else if (url.includes('/v6/main/indexV8') || url.includes('/v6/search?')) {
+} else if (/^https:\/\/api\.coolapk\.com\/v6\/(main\/indexV8|search)/.test(url)) {
     let obj = JSON.parse(body);
     const filterIds = new Set([32557, 13635, 29349, 16977]);
     if (obj.data && Array.isArray(obj.data)) {
