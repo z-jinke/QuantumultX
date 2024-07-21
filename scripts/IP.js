@@ -14,7 +14,7 @@ const flag = countryFlags[countryCode] || '';
 
 // 构造标题和副标题
 const title = `    ${countryCode}`;
-const subtitle = `地区: ${flag} IP: ${ip}`;
+const subtitle = `国家:${flag} 地区IP:${ip}`;
 
 // 返回修改后的内容
 $done({ title, ip, subtitle });
