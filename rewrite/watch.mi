@@ -1,0 +1,7 @@
+//小米运动健康
+
+//主机名
+hostname = hlth.io.mi.com、watch.iot.mi.com
+
+^https:\/\/hlth\.io\.mi\.com\/app\/v1\/course url reject-200
+^https:\/\/watch\.iot\.mi\.com\/cgi-op\/api\/v1\/watch\/health\/resource url reject-200
