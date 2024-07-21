@@ -1,4 +1,4 @@
-// 2024.7.18
+// 2024.7.21
 
 const { body } = $response;
 const { country_code: countryCode, ip } = JSON.parse(body);
@@ -14,7 +14,7 @@ const flag = countryFlags[countryCode] || '';
 
 // 构造标题和副标题
 const title = `    ${countryCode}`;
-const subtitle = `国家:${flag} | 地区IP:${ip}`;
+const subtitle = `国家:${flag} ｜ IP地址:${ip}`;
 
 // 返回修改后的内容
 $done({ title, ip, subtitle });
