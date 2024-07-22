@@ -1,5 +1,6 @@
 //Spotify重写
 //原作者:app2smile
+//原仓库:https://raw.githubusercontent.com/DrStrangeVN/App2smile/master/module/spotify.conf
 
 //主机名
 hostname = spclient.wg.spotify.com
