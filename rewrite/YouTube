@@ -3,7 +3,6 @@
 //原仓库:https://raw.githubusercontent.com/DrStrangeVN/Maasea/master/YoutubeAds.sgmodule
 
 
-
 hostname = *.googlevideo.com,youtubei.googleapis.com
 
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*(&.+)+ url reject-200
