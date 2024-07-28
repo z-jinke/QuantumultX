@@ -1,19 +1,18 @@
 //哔哩哔哩重写
 
-
+#主机名
 hostname = *.bilibili.com
-
-//开屏广告处理
+#开屏广告屏蔽
 ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/show? url reject-200
 ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
-//首页推荐处理
+#首页推荐处理
 ^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/(index\/story|index) url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
-//标签页处理
+#标签页处理
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
-//标签页番剧和影视
+#标签页番剧和影视处理
 ^https?:\/\/api\.bilibili\.com\/pgc\/page\/cinema\/tab url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
 ^https?:\/\/api\.bilibili\.com\/pgc\/page\/bangumi url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
-//我的页面处理
+#我的页面处理
 ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials? url reject-200
 ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
 ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/BiliBili.js
