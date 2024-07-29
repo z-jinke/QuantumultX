@@ -1,9 +1,9 @@
-// 2024.7.19
+// 2024.7.20
 
 const url  = $request.url;
 const body = $response.body;
 
-// 匹配启动页广告接口
+// 开屏广告
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.list) {
@@ -16,7 +16,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     }
     $done({ body: JSON.stringify(obj) });
 
-// 匹配首页标签接口
+// 首页标签
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -41,7 +41,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     }
     $done({ body: JSON.stringify(obj) });
 
-// 匹配首页推荐接口
+// 首页推荐
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/(index\/story|index)/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.items) {
@@ -49,7 +49,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     }
     $done({ body: JSON.stringify(obj) });
 
-// 匹配番剧与影视页面接口    
+// 番剧与影视页面   
 } else if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema\/tab|bangumi)/.test(url)) {
     let obj = JSON.parse(body);
     const excludeModuleIds = new Set([1441, 248, 1455, 1633, 1639]);
@@ -58,7 +58,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     }
     $done({ body: JSON.stringify(obj) });
 
-// 匹配账号页面（iPhone）接口    
+// 我的页面iPhone
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?!\/ipad)/.test(url)) {
     let obj = JSON.parse(body);
     const excludeIds    = new Set([171, 172, 173, 174, 429, 431, 432, 950]);
@@ -73,7 +73,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     }
     $done({ body: JSON.stringify(obj) });
 
-// 匹配账号页面（iPad）接口    
+// 我的页面iPad   
 } else if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad/.test(url)) {
     let obj = JSON.parse(body);
     const excludeTitles = new Set(["青少年守护"]);
