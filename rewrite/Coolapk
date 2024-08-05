@@ -3,6 +3,8 @@
 #主机名
 hostname = *.coolapk.com
 
+#信息流广告处理
+^https:\/\/api\.coolapk\.com\/v6\/(page|feed) url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
 #我的页面处理
 ^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
 #首页与搜索处理
