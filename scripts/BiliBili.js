@@ -50,7 +50,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     $done({ body: JSON.stringify(obj) });
 
 // 番剧与影视页面   
-} else if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/。test(url)) {
+} else if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
     let obj = JSON.parse(body);
     const excludeModuleIds = new Set([1441, 248, 1455, 1633, 1639]);
     if (obj.result && obj.result.modules) {
