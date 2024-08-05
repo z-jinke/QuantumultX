@@ -51,6 +51,8 @@ if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
         obj.data.forEach(item => {
             delete item.extraDataArr;
             delete item.extraData;
+            delete item.entityTemplate;
+            delete item.reward_type;
         });
         obj.data = obj.data.filter(item => !filterIds.has(item.entityId));
     }
