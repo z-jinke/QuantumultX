@@ -1,9 +1,10 @@
-//YouTube重写
+//YouTube
 //原作者:Maasea
 //原仓库:https://raw.githubusercontent.com/DrStrangeVN/Maasea/master/YoutubeAds.sgmodule
 
 #主机名
 hostname = *.googlevideo.com,youtubei.googleapis.com
-#播放页广告和UI布局处理
+
+#去广告和精简UI
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*(&.+)+ url reject-200
 ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js
