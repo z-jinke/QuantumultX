@@ -3,8 +3,7 @@
 #主机名
 hostname = *.coolapk.com
 #信息流数据处理
-^https:\/\/api\.coolapk\.com\/v6\/feed\/replyList url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
-^https:\/\/api\.coolapk\.com\/v6\/page\/dataList url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
+^https:\/\/api\.coolapk\.com\/v6(page\/dataList|feed\/replyLis) url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
 #我的页面处理
 ^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig url script-response-body https://raw.githubusercontent.com/z-jinke/QuantumultX/main/scripts/Coolapk.js
 #首页与搜索处理
