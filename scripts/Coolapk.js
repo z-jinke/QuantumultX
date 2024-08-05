@@ -44,7 +44,7 @@ if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     $done({ body: JSON.stringify(obj) });
 
 // 信息流广告
-} else if (/^https:\/\/api\.coolapk\.com\/v6(page\/dataList|feed\/replyLis)/。test(url)) {
+} else if (/^https:\/\/api\.coolapk\.com\/v6(page|feed)/。test(url)) {
     let obj = JSON.parse(body);
     const filterIds = new Set([12315, 8364, 14379, 24309, 35846, 35730, 12889]);
     if (obj.data && Array.isArray(obj.data)) {
