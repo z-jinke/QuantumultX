@@ -42,4 +42,18 @@ if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
         obj.data = obj.data.filter(item => !filterIds.has(item.entityId));
     }
     $done({ body: JSON.stringify(obj) });
+
+//信息流广告
+} else if (/^https:\/\/api\.coolapk\.com\/v6\/(page|feed)/.test(url)) {
+    let obj = JSON.parse(body);
+    const filterIds = new Set([12315, 8364, 14379, 24309, 35846, 35730, 12889]);
+    if (obj.data && Array.isArray(obj.data)) {
+        obj.data.forEach(item => {
+            delete item.extraDataArr;
+            delete item.lastupdate;
+            delete item.entityFixed;
+        });
+        obj.data = obj.data.filter(item => !filterIds.has(item.entityId));
+    }
+    $done({ body: JSON.stringify(obj) });
 }
