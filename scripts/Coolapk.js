@@ -49,8 +49,7 @@ if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     const filterIds = new Set([12315, 8364, 14379, 24309, 35846, 35730, 12889]);
     if (obj.data && Array.isArray(obj.data)) {
         obj.data.forEach(item => {
-            delete item.extraDataArr
-            delete item.extraData;
+            delete item.extraDataArr;
         });
         obj.data = obj.data.filter(item => !filterIds.has(item.entityId));
     }
