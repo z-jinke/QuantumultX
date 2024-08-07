@@ -3,8 +3,11 @@
 //原仓库:https://raw.githubusercontent.com/DrStrangeVN/Maasea/master/YoutubeAds.sgmodule
 
 #主机名
-hostname = *.googlevideo.com,youtubei.googleapis.com
+hostname = *.googlevideo.com,*.googleapis.com,*.youtube.com
 
 #去广告和精简UI
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads url reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) url reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject-200
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*(&.+)+ url reject-200
 ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js
