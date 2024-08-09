@@ -6,7 +6,7 @@ const body = $response.body;
 // 初始化配置
 if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
-    const entityIdSet = new Set([1742, 1966, 1681, 1633, 1710, 1754, 1229, 413, 417, 790, 813, 2191, 845, 2258, 1170, 1247, 2299, 2412, 2018]);
+    const entityIdSet = new Set([944, 1742, 1966, 1681, 1633, 1710, 1754, 1229, 413, 417, 790, 813, 2191, 845, 2258, 1170, 1247, 2299, 2412, 2018]);
     if (obj.data && Array.isArray(obj.data)) {
         obj.data.forEach(item => {
             if (item.extraDataArr) {
